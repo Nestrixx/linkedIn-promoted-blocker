@@ -1,37 +1,42 @@
 setTimeout(() => {
 
-    const jobList = document.querySelector(".scaffold-layout__list-container");
-    const jobs = Array.from(jobList.getElementsByTagName('li'));
+    const jobListContainer = document.querySelector(".scaffold-layout__list-container");
+
+    const jobsList = jobListContainer.querySelectorAll(".jobs-search-results__list-item")
 
     for (let i = 0; i < jobs.length; i++) {
         const currentJob = jobs[i];
-        if (currentJob.innerText.toLowerCase() === "promoted") {
-            for (let j = i; j >= 0; j--) {
-                const parentJob = jobs[j];
-                // console.log(parentJob);
-                // console.log(parentJob.className.split(' '));
-                const shouldDeleteJob = parentJob.className.split(' ').includes("ember-view")
-                if (shouldDeleteJob) {
-                    console.log("second if check")
-                    // parentJob.style.display = "none";
-                    currentJob.style.color = "white";
-                }
-            }
-        }
+        const listItemHeight = currentJob.offsetHeight;
+        const listItemWidth = currentJob.offsetWidth;
+
+        let z = 1000;
+        // if (currentJob.innerText.toLowerCase() === "promoted") {
+        //     for (let j = i; j >= 0; j--) {
+        //         const parentJob = jobs[j];
+        //         // console.log(parentJob);
+        //         // console.log(parentJob.className.split(' '));
+        //         const shouldDeleteJob = parentJob.className.split(' ').includes("ember-view")
+        //         // parentJob.style.display = "none";
+        //         if (shouldDeleteJob) {
+        //             console.log(parentJob);
+        //             // currentJob.replaceChildren();
+        //         }
+        //     }
+        // }
         // console.log(currentJob);
     }
-    document
 
     // const footerList = jobs.getElementsByTagName('ul');
     // console.log(jobList?.length); 
-}, 4000)
+}, 8000)
 
 
 /*
 
-check the innertext for "promoted"
-go back in the loop to look for parent
-check to see if classname equals wrapper *** if wrapper is the same across the board for li's
+
+1. loop through JobsList for list items and look innnerHtml of "promoted" for deleting.
+2. remove all child elements with replaceChildren this should remove all children thus removing unwanted list items.
+2.5 replace with cat pic in image tag. this is 2.5 because replace happens same time as child killing.
 
 
 */
