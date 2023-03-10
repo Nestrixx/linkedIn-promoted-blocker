@@ -4,31 +4,24 @@ setTimeout(() => {
 
     const jobsList = jobListContainer.querySelectorAll(".jobs-search-results__list-item")
 
-    for (let i = 0; i < jobs.length; i++) {
-        const currentJob = jobs[i];
-        const listItemHeight = currentJob.offsetHeight;
-        const listItemWidth = currentJob.offsetWidth;
+    for (let i = 0; i < jobsList.length; i++) {
+        const currentJob = jobsList[i];
+        const currentJobListElements = currentJob.getElementsByTagName("li");
+        // console.log(jobsList.length, currentJobListElements.length);
 
-        let z = 1000;
-        // if (currentJob.innerText.toLowerCase() === "promoted") {
-        //     for (let j = i; j >= 0; j--) {
-        //         const parentJob = jobs[j];
-        //         // console.log(parentJob);
-        //         // console.log(parentJob.className.split(' '));
-        //         const shouldDeleteJob = parentJob.className.split(' ').includes("ember-view")
-        //         // parentJob.style.display = "none";
-        //         if (shouldDeleteJob) {
-        //             console.log(parentJob);
-        //             // currentJob.replaceChildren();
-        //         }
-        //     }
-        // }
-        // console.log(currentJob);
+        for (let j = 0; j < currentJobListElements.length; j++) {
+            if (currentJobListElements[j].innerText.toLocaleLowerCase() === "promoted") {
+                const catImageTest = new Image(486, 107)
+                catImageTest.src = chrome.runtime.getURL("../images/cat.jpg");
+                currentJob.replaceChildren(catImageTest);
+                currentJob.appendChild
+            }
+        }
+        // for(let j = 0; j < currentJob.length)
+
     }
 
-    // const footerList = jobs.getElementsByTagName('ul');
-    // console.log(jobList?.length); 
-}, 8000)
+}, 4000)
 
 
 /*
