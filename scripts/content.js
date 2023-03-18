@@ -1,4 +1,5 @@
 chrome.runtime.onMessage.addListener((isAlternateReplacementLogo) => {
+    console.log(isAlternateReplacementLogo);
     swapLogo(isAlternateReplacementLogo);
     return true;
 })
