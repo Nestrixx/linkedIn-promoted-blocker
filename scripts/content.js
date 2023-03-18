@@ -1,4 +1,9 @@
+let alternateReplacementPic = false;
 const newConfig = { attributes: false, childList: true, subtree: true }
+
+chrome.runtime.onMessage.addListener((msg, sender, response) => {
+    console.log("hello", msg);
+})
 
 const replaceAds = () => {
     const jobList = document.querySelector(".scaffold-layout__list-container")
@@ -13,9 +18,9 @@ const replaceAds = () => {
 
             for (let j = 0; j < currentJobListElements.length; j++) {
                 if (currentJobListElements[j].innerText.toLocaleLowerCase() === "promoted") {
-                    const catImageTest = new Image(486, 107)
-                    catImageTest.src = chrome.runtime.getURL("../images/logo.png");
-                    currentJob.replaceChildren(catImageTest);
+                    const logo = new Image(486, 107);
+                    logo.src = chrome.runtime.getURL("../images/logo.png");
+                    currentJob.replaceChildren(logo);
                 }
             }
         }
