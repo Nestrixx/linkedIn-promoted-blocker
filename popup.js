@@ -1,5 +1,6 @@
-window.addEventListener("DOMContentLoaded", async () => {
+let isLogoDefault = true;
+document.querySelector(".button").addEventListener("click", async () => {
     const [tab] = await chrome.tabs.query({ active: true, lastFocusedWindow: true });
-    const response = chrome.tabs.sendMessage(tab.id, true, {}, () => {
-    })
+    await chrome.tabs.sendMessage(tab.id, isLogoDefault)
+    isLogoDefault = !isLogoDefault;
 })
