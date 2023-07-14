@@ -2,7 +2,7 @@
 
 AdBlockIn is a chrome extension that blocks out promoted job postions on LinkedIn with either my logo. 
 * Allows for faster sifting of legitimate job offers with less ads.
-* can switch between my personal logo and other images.  
+* Can switch between my personal logo and other images.  
   
 
 
